@@ -20,7 +20,8 @@ namespace DisposableEmailValidation.Repositories
 
         public List<string> GetBlackListDomain()
         {
-            string json = File.ReadAllText(_config.Database.ConnectionStrings.Utils);
+            var dir = Directory.GetCurrentDirectory();
+            string json = File.ReadAllText($"{dir}\\ConfigFiles\\{_config.Database.ConnectionStrings.Utils}");
             return JsonConvert.DeserializeObject<List<string>>(json);
         }
     }

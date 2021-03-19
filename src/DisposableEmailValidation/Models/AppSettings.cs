@@ -16,6 +16,7 @@
 
     public class Connectionstrings
     {
+        public string Master { get; set; }
         public string Utils { get; set; }
         public string Users { get; set; }
     }

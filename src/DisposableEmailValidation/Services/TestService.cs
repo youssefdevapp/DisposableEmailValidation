@@ -26,9 +26,14 @@ namespace DisposableEmailValidation.Services
 
             foreach (var email in usersMails)
             {
-                _validateEmailService.IsValidEmailAddressFormat(email);
-                _validateEmailService.IsDomainBlackListed(email);
-                _validateEmailService.IsEmailAddressRealDomain(email);
+                if (_validateEmailService.IsValidEmailAddressFormat(email)
+                    && !_validateEmailService.IsDomainBlackListed(email) 
+                    && _validateEmailService.IsEmailAddressRealDomain(email))
+                    _logger.LogInformation($"{email.Email} is Valid");
+                else
+                {
+                    _logger.LogWarning($"{email.Email} is not valid");
+                }
             }
 
             _logger.LogInformation("End test emails");

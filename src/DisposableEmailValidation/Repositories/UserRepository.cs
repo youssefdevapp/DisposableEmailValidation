@@ -21,7 +21,8 @@ namespace DisposableEmailValidation.Repositories
 
         public List<EmailAddress> GetUsersEmail()
         {
-            string json = File.ReadAllText(_config.Database.ConnectionStrings.Users);
+            var dir = Directory.GetCurrentDirectory();
+            string json = File.ReadAllText($"{dir}\\ConfigFiles\\{_config.Database.ConnectionStrings.Users}");
             List<string> emails = JsonConvert.DeserializeObject<List<string>>(json);
 
             return emails.Select(s => new EmailAddress(s)).ToList();

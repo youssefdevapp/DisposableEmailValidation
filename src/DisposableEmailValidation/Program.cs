@@ -45,6 +45,7 @@ namespace DisposableEmailValidation
 
             // add services
             serviceCollection.AddTransient<ITestService, TestService>();
+            serviceCollection.AddTransient<IValidateEmailService, ValidateEmailService>();
 
             // add app
             serviceCollection.AddTransient<App>();

@@ -23,6 +23,9 @@
     <None Update="ConfigFiles\EmailBlackListDomains.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="ConfigFiles\TestMails.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
